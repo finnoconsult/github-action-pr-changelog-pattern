@@ -1,4 +1,5 @@
 const core = require('@actions/core');
+const {extactMessages} = require('./extactMessages');
 
 try {
 
