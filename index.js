@@ -1,5 +1,5 @@
 const core = require('@actions/core');
-const {extactMessages} = require('./extactMessages');
+const { extactMessages, messageRegex } = require('./extactMessages');
 
 try {
 
