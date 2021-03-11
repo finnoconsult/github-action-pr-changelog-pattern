@@ -17,8 +17,10 @@ inputs:
     default: '## {{version}} - {{date}}\n\n{ - {message}\n}'
     required: false
 outputs:
-  content:
+  new:
     description: 'The newly created changelog content'
+  diff:
+    description: 'The changelog difference compare to the last tag, currently not implemented'
 runs:
   using: 'node12'
   main: 'index.js'

@@ -33,9 +33,14 @@ Supported literals are *{version} {date} {datetime}* and *{message}*
 
 ## Outputs
 
-### `content`
+### `new`
 
 The string content build from input
+
+### `diff`
+
+The changelog difference compare to the last tag, **currently not implemented!**
+
 
 ## Example usage
 ```yaml

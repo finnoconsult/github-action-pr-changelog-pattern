@@ -24,9 +24,9 @@ try {
     .replace(/{{datetime}}/g, new Date().toISOString())
     .replace(messageRegex, extractedContent);
 
-  console.log('content', body);
+  console.log('new content', body);
 
-  core.setOutput("content", body);
+  core.setOutput("new", body);
   // Get the JSON webhook payload for the event that triggered the workflow
 } catch (error) {
   core.setFailed(error.message);
