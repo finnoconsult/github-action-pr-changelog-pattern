@@ -14,7 +14,7 @@ inputs:
     required: false
   body-template:
     description: 'The changelog content syntax'
-    default: '## {{version}}\n\n{{date}}\n\n{ - {message}\n}'
+    default: '## {{version}} - {{date}}\n\n{ - {message}\n}'
     required: false
 outputs:
   content:

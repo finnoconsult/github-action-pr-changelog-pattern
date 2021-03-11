@@ -24,7 +24,7 @@ To Build Changelog from recent PR title and/or body
 **Optional** The regex pattern to match any string, ie to grab all referenced issue URL. Default `https://[\wéáőúíóüö/\-\.]+`
 ### `body-template`
 
-**Optional** String Format to build the changelog template. Default `"## {{version}}\n\n{{date}}\n\n{ - {message}\n}"`.
+**Optional** String Format to build the changelog template. Default `"## {{version}} - {{date}}\n\n{ - {message}\n}"`.
 
 Supported literals are *{version} {date} {datetime}* and *{message}*
 

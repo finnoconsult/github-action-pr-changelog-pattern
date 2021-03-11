@@ -7,12 +7,11 @@ try {
   messages = pr.body.split('\n');
 
   const currentVersion = core.getInput('version');
+  const messagePattern = core.getInput('message-pattern') || 'https://[\wéáőúíóüö/\-\.]+';
+  const bodyTempate = core.getInput('body-template') || '## {{version}} - {{date}}\n\n{ - {message}\n}';
 
-  const messagePattern = process.env['INPUT_MESSAGE-PATTERN'] || 'https://[\wéáőúíóüö/\-\.]+';
-  const bodyTempate = process.env['INPUT_BODY-TEMPLATE'] || '## {{version}} - {{date}}\n\n{ - {message}\n}';
-
-  // console.log('messages', messages);
-  // console.log('messagePattern', messagePattern);
+  console.log('messagePattern', messagePattern);
+  console.log('bodyTempate', bodyTempate);
 
   // TODO: order and group by fix/feature classification?
   const extractedContent = extactMessages(bodyTempate, messages, messagePattern);
