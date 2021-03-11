@@ -19,7 +19,8 @@
   },
   "homepage": "https://github.com/finnoconsult/github-action-pr-changelog-pattern#readme",
   "dependencies": {
-    "@actions/core": "^1.2.6"
+    "@actions/core": "^1.2.6",
+    "execa": "^5.0.0"
   },
   "devDependencies": {
     "jest": "^25.2.7",
