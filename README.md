@@ -4,6 +4,9 @@ To Build Changelog from recent PR title and/or body
 
 - This action grabs any text from PR details, which matches "message-pattern".
 - Then builds up a string changelog according to template specified in "body-template"
+- serves the build changelog as *output* variable
+
+However, It doesn't automatically updates or commits anything. Subsequent github actions must be used to amend the repository.
 
 ## Environment variable
 
