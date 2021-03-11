@@ -1,0 +1,24 @@
+name: 'Build Changelog from PR'
+description: 'Build Changelog from recent PR title and body'
+env:
+  pr:
+    description: 'PR object, passed as ENV, not with INPUT'
+    required: true
+inputs:
+  version:
+    description: 'The current version to be displayed'
+    required: true
+  message-pattern:
+    description: 'anything to match from the commit and PR messages'
+    default: 'https://[\wéáőúíóüö/\-\.]+'
+    required: false
+  body-template:
+    description: 'The changelog content syntax'
+    default: '## {{version}} - {{date}}\n\n{ - {message}\n}'
+    required: false
+outputs:
+  content:
+    description: 'The newly created changelog content'
+runs:
+  using: 'node12'
+  main: 'index.js'
