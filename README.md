@@ -35,11 +35,15 @@ Supported literals are *{version} {date} {datetime}* and *{message}*
 
 ### `new`
 
-The string content build from input
+The string content built from input
 
-### `diff`
+### `new_array`
 
-The changelog difference compare to the last tag, **currently not implemented!**
+The content as array built from input
+
+<!-- ### `diff`
+
+The changelog difference compare to the last tag, **currently not implemented!** -->
 
 
 ## Example usage

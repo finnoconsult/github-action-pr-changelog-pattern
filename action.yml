@@ -19,8 +19,10 @@ inputs:
 outputs:
   new:
     description: 'The newly created changelog content'
-  diff:
-    description: 'The changelog difference compare to the last tag, currently not implemented'
+  new-array:
+    description: 'The newly created changelog content as array object'
+  # diff:
+  #   description: 'The changelog difference compare to the last tag, currently not implemented'
 runs:
   using: 'node12'
   main: 'index.js'
