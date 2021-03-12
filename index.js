@@ -27,6 +27,7 @@ try {
   console.log('new content', body);
 
   core.setOutput("new", body);
+  core.setOutput("new_array", body.split('\n'));
   // Get the JSON webhook payload for the event that triggered the workflow
 } catch (error) {
   core.setFailed(error.message);
