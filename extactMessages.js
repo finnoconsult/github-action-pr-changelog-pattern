@@ -11,7 +11,7 @@ function extactMessages(template, messages, messagePattern='https://[\\wéáőú
     },
     []
   )
-  .map(message => `${messagesPattern[1]}${message}${messagesPattern[2]}`)
+  .map(message => `${messagesPattern[1]}${message}${messagesPattern[2]}`)
   .join('');
 
   // console.log('extractedContent', extractedContent);
