@@ -4,12 +4,13 @@ const { extactMessages, messageRegex } = require('./extactMessages');
 try {
 
   const pr = JSON.parse(process.env.PR);
-  messages = pr.body.split('\n');
+  messages = [pr.title].concat(pr.body.split('\n'));
 
   const currentVersion = core.getInput('version');
   const messagePattern = core.getInput('message-pattern') || 'https://[\wéáőúíóüö/\-\.]+';
   const bodyTempate = core.getInput('body-template') || '## {{version}} - {{date}}\n\n{ - {message}\n}';
 
+  console.log('messages', messages);
   console.log('messagePattern', messagePattern);
   console.log('bodyTempate', bodyTempate);
 
