@@ -12,6 +12,7 @@ try {
 
   console.log('messagePattern', messagePattern);
   console.log('bodyTempate', bodyTempate);
+  console.log('messages', messages);
 
   // TODO: order and group by fix/feature classification?
   const extractedContent = extactMessages(bodyTempate, messages, messagePattern);
