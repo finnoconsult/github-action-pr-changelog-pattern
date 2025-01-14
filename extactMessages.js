@@ -2,7 +2,7 @@ const messageRegex = /{([^{]*){message}([^{]*)}/i;
 
 const lowercaseFirstWordInSentence = (sentence) => sentence.replace(/^\b\w+\b/, match => match.toLowerCase());
 
-function extactMessages(template, messages, messagePattern='(^(feat|fix|docs|style|refactor|perf|test|chore|ci)!?:\\s.*)|(https://[^\\s]+)') {
+function extactMessages(template, messages, messagePattern='(^(feat|fix|docs|style|refactor|perf|test|chore|ci)!?:\\s.*)|(https:\\/\\/[^\\s]+(?:[^\\s)]+))') {
   const messagesPattern = template.match(messageRegex);
 
   const extractedContent = messages.reduce(

@@ -10,7 +10,7 @@ inputs:
     required: true
   message-pattern:
     description: 'anything to match from the commit and PR messages'
-    default: '(^(feat|fix|docs|style|refactor|perf|test|chore|ci)!?:\\s.*)|(https://[\wéáőúíóüö/\-\.]+)'
+    default: '(^(feat|fix|docs|style|refactor|perf|test|chore|ci)!?:\\s.*)|(https:\\/\\/[^\\s]+(?:[^\\s)]+)'
     required: false
   body-template:
     description: 'The changelog content syntax'
