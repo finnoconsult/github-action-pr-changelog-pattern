@@ -1,5 +1,5 @@
 const core = require('@actions/core');
-const { extactMessages, messageRegex } = require('./extactMessages');
+const { extactMessages, messageRegex, linkUrlOrSemanticReleaseMatchingPattern } = require('./extactMessages');
 
 try {
 
@@ -7,7 +7,7 @@ try {
   messages = [pr.title, ...pr.body.split('\n')];
 
   const currentVersion = core.getInput('version');
-  const messagePattern = core.getInput('message-pattern') || '(^(feat|fix|docs|style|refactor|perf|test|chore|ci)!?:\\s.*)|(https:\\/\\/[^\\s]+(?:[^\\s)]+)';
+  const messagePattern = core.getInput('message-pattern') || linkUrlOrSemanticReleaseMatchingPattern;
   const bodyTempate = core.getInput('body-template') || '## {{version}} - {{date}}\n\n{ - {message}\n}';
 
   console.log('messagePattern', messagePattern);
