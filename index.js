@@ -7,7 +7,7 @@ try {
   messages = [pr.title, ...pr.body.split('\n')];
 
   const currentVersion = core.getInput('version');
-  const messagePattern = core.getInput('message-pattern') || 'https://[\wéáőúíóüö/\-\.]+';
+  const messagePattern = core.getInput('message-pattern') || '(^(feat|fix|docs|style|refactor|perf|test|chore|ci)!?:\\s.*)|(https://[\wéáőúíóüö/\-\.]+)';
   const bodyTempate = core.getInput('body-template') || '## {{version}} - {{date}}\n\n{ - {message}\n}';
 
   console.log('messagePattern', messagePattern);
