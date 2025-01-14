@@ -63,6 +63,11 @@ describe('extract trello messages with simple template', () => {
 
 describe.each([
   { messages:[
+    'feat: 759 new strapi plugin page to enlist potential institution problems missing logo',
+    'resolves [#759](https://github.com/finnoconsult/websites/issues/759)\n',
+    '![image](https://github.com/user-attachments/assets/83fae773-b7c7-43df-b601-ecea5e05351d)\n'
+  ] , output:"feat: 759 new strapi plugin page to enlist potential institution problems missing logo,https://github.com/finnoconsult/websites/issues/759,https://github.com/user-attachments/assets/83fae773-b7c7-43df-b601-ecea5e05351d," },
+  { messages:[
     'Feat: #344 something great feat',
     'Merge pull request #12 from finnoconsult/fix/merge-dev-v1\n'
   ] , output:"feat: #344 something great feat," },
@@ -70,6 +75,12 @@ describe.each([
     'Feat #344 something great feat',
     'Merge pull request #12 from finnoconsult/fix/merge-dev-v1\n'
   ] , output:"" },
+  { messages: [
+    'Merge pull request #12 from https://finnoconsult/fix/merge-dev-v1#ádé\n'
+  ] , output:"https://finnoconsult/fix/merge-dev-v1#ádé," },
+  { messages: [
+    'Merge pull request #12 from https://finnoconsult/fix/merge-dev-v1-pomádé\n'
+  ] , output:"https://finnoconsult/fix/merge-dev-v1-pomádé," },
   { messages: [
     'Feat: #344 something great feat',
     'Merge pull request #12 from HTTPS://finnoconsult/fix/merge-dev-v1\n'
@@ -85,47 +96,6 @@ describe.each([
   const bodyTemplate = '{{message},}';
 
   it('1 semantic ', () => expect(extactMessages(bodyTemplate, messages)).toEqual(output));
-
-  // const messages2 = [
-  //   'Feat #344 something great feat',
-  //   'Merge pull request #12 from finnoconsult/fix/merge-dev-v1\n'
-  // ];
-  // it('none found', () => expect(extactMessages(bodyTemplate, messages2)).toEqual(""));
-
-  // const messages3 = [
-  //   'Feat: #344 something great feat',
-  //   'Merge pull request #12 from https://finnoconsult/fix/merge-dev-v1\n'
-  // ];
-  // it('1 semantic + 1 good https link', () => expect(extactMessages(bodyTemplate, messages3)).toEqual("Feat: #344 something great feat,https://finnoconsult/fix/merge-dev-v1,"));
-
-
-  // const messages4 = [
-  //   'Feat: #344 something great feat',
-  //   'Merge pull request #12 from http://finnoconsult/fix/merge-dev-v1\n'
-  // ];
-  // it('1 semantic + 1 bad http link', () => expect(extactMessages(bodyTemplate, messages4)).toEqual("Feat: #344 something great feat,"));
-
-  // const messages5 = [
-  //   'Chore!: #333 something annoying chore',
-  // ];
-  // it('1 semantic ', () => expect(extactMessages(bodyTemplate, messages5)).toEqual("Chore!: #333 something annoying chore,"));
-
-
-
-
-// });
-
-//     'Feat: #344 something great feat',
-//     'Merge pull request #12 from http://finnoconsult/fix/merge-dev-v1\n'
-//   ];
-//   it('1 semantic + 1 bad http link', () => expect(extactMessages(bodyTemplate, messages4)).toEqual("Feat: #344 something great feat,"));
-
-//   const messages5 = [
-//     'Chore!: #333 something annoying chore',
-//   ];
-//   it('1 semantic ', () => expect(extactMessages(bodyTemplate, messages5)).toEqual("Chore!: #333 something annoying chore,"));
-
-
 
 
 });
