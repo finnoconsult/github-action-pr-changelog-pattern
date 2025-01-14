@@ -24,7 +24,7 @@ However, It doesn't automatically updates or commits anything. Subsequent github
 
 ### `message-pattern`
 
-**Optional** The regex pattern to match any string, ie to grab all referenced issue URL. Default `https://[\wéáőúíóüö/\-\.]+`
+**Optional** The regex pattern to match any string, ie to grab all referenced issue URL. Default `(^(feat|fix|docs|style|refactor|perf|test|chore|ci)!?:\\s.*)|(https:\\/\\/[^\\s]+(?:[^\\s)]+)`
 ### `body-template`
 
 **Optional** String Format to build the changelog template. Default `"## {{version}} - {{date}}\n\n{ - {message}\n}"`.
