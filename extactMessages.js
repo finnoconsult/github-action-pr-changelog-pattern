@@ -2,7 +2,9 @@ const messageRegex = /{([^{]*){message}([^{]*)}/i;
 
 const lowercaseFirstWordInSentence = (sentence) => sentence.replace(/^\b\w+\b/, match => match.toLowerCase());
 
-function extactMessages(template, messages, messagePattern='(^(feat|fix|docs|style|refactor|perf|test|chore|ci)!?:\\s.*)|(https:\\/\\/[^\\s]+(?:[^\\s)]+))') {
+const linkUrlOrSemanticReleaseMatchingPattern='(^(feat|fix|docs|style|refactor|perf|test|chore|ci)!?:\\s.*)|(https://[\\wéáőúíóüö#/\\-\\.]+)';
+
+function extactMessages(template, messages, messagePattern=linkUrlOrSemanticReleaseMatchingPattern) {
   const messagesPattern = template.match(messageRegex);
 
   const extractedContent = messages.reduce(
@@ -25,3 +27,4 @@ exports.extactMessages = extactMessages;
 
 exports.messageRegex = messageRegex;
 exports.lowercaseFirstWordInSentence = lowercaseFirstWordInSentence;
+exports.linkUrlOrSemanticReleaseMatchingPattern = linkUrlOrSemanticReleaseMatchingPattern;
