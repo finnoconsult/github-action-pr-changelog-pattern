@@ -13,7 +13,8 @@ describe.each([
   ['!Hello World', '!Hello World'],
   ['', ''],
   ['   Hello   World', '   Hello   World'],
-  ['Hello, World!', 'hello, World!']
+  ['Hello, World!', 'hello, World!'],
+  ['Árvíztűrő tükörfúrógép!', 'Árvíztűrő tükörfúrógép!']
 ])('lowercaseFirstWordInSentence', (input, expectedOutput) => {
   it(`should ${expectedOutput === input ? 'not change' : 'lowercase the first word in'} the sentence`, () => {
     const result = lowercaseFirstWordInSentence(input);
@@ -62,6 +63,14 @@ describe('extract trello messages with simple template', () => {
 });
 
 describe.each([
+  { messages:[
+    'fix: amend readme',
+    '### This PR Resolves\r',
+    '\r',
+    'testing CI\r',
+    'fix: add title for testing CI\r',
+    "add pull_request_template.md in order to generate the next PR's body"
+  ] , output:"fix: amend readme,fix: add title for testing CI," },
   { messages:[
     'feat: 759 new strapi plugin page to enlist potential institution problems missing logo',
     'resolves [#759](https://github.com/finnoconsult/websites/issues/759)\n',
