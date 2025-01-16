@@ -2,7 +2,7 @@ const messageRegex = /{([^{]*){message}([^{]*)}/i;
 
 const lowercaseFirstWordInSentence = (sentence) => sentence.replace(/^\b\w+\b/, match => match.toLowerCase());
 
-const linkUrlOrSemanticReleaseMatchingPattern='(^(feat|fix|docs|style|refactor|perf|test|chore|ci)!?:\\s.*)|(https://[\\wéáőúíóüö#/\\-\\.]+)';
+const linkUrlOrSemanticReleaseMatchingPattern='(^(feat|fix|docs|style|refactor|perf|test|chore|ci)!?:\\s.*)|(https://[wéáőúíóüö#/\\w-.]+)';
 
 function extactMessages(template, messages, messagePattern=linkUrlOrSemanticReleaseMatchingPattern) {
   const messagesPattern = template.match(messageRegex);
@@ -10,7 +10,9 @@ function extactMessages(template, messages, messagePattern=linkUrlOrSemanticRele
   const extractedContent = messages.reduce(
     (array, message) => {
       const matched = message.match(new RegExp(messagePattern, 'gi'));
-      // console.log('checking message', message, 'against', new RegExp(messagePattern, 'gi'), '=>', matched);
+      if (process.env.VERBOSE !== 'false') {
+        console.log('checking message', message, 'against', new RegExp(messagePattern, 'gi'), '=>', matched);
+      }
       return matched ? array.concat(matched) : array;
     },
     []
